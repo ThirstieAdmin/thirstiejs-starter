@@ -1,0 +1,21 @@
+{
+  "name": "thirstiejs-starter",
+  "version": "1.0.0",
+  "description": "A simple web app using the Thirstie Ecomm-vue SDK",
+  "homepage": "https://docs.thirstie.com/",
+  "repository": "github:ThirstieAdmin/thirstiejs-starter",
+  "scripts": {
+    "start": "parcel src/*.html --lazy --no-cache",
+    "clean": "concurrently \"recursive-delete 'dist'\" \"recursive-delete '.parcel-cache'\""
+  },
+  "author": "Thirstie, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@thirstie/ecomm-vue": "^0.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "parcel": "^2.13.2",
+    "recursive-fs": "^2.1.0"
+  }
+}

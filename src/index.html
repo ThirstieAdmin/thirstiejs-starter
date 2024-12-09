@@ -1,0 +1,67 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Thirstie Demo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="header-container">  <!-- Your standard navigation bar header -->
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-nav">
+                  Thirstie Powered E-Commerce
+                </div>
+            </div>
+            <div class="navbar-cta">
+              <!-- Thirstie Custom component placing the shopping cart icon in the header -->
+              <!-- th-cart-nave also enables a slide in drawer to preview shopping cart details -->
+              <th-header-nav></th-header-nav> 
+            </div>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+      <div class="content">
+        <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
+        <th-zipcode-check></th-zipcode-check>
+        <!-- handleSelect callback will control routing to PDP page-->
+        <th-plp id="th-plp"></th-plp>
+        <div id="th-pdp"></div>
+      </div>
+      <!-- Install age gate modal -->
+      <th-agegate-modal type="dob" class="th-fouc-block">
+        <span slot="header">Welcome! Can we see some ID?</span>
+        <div slot="additional-msg">
+          <div>For information about enjoying Alcohol RESPONSIBLY visit <a href="https://responsibility.org">responsibility.org</a> & <a href="https://responsibledrinking.org">responsibledrinking.org</a></div>
+        </div>
+        <div slot="fail-msg">You must 21 or older to enter. Click <a href="https://responsibility.org" target="_blank">here</a></div>
+      </th-agegate-modal>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+    <script>
+      /*
+      This is to demonstrate using the components outside of a Thirstie Container component.
+      Alternatively Thirstie can provide a container that encapsulates this logic.
+      */
+      const productListingEl = document.querySelector('#th-plp');
+      const productDetailEl = document.querySelector('#th-pdp');
+
+      function handleProductLineSelect(productLineEvent) {
+        /* 
+         Logic to display product detail component, with add-to-cart
+         This could be replace with your own more complex routing if the
+         product-detail/add-to-cart should be on a page.
+         */
+        const selectedProductLine = productLineEvent.detail && productLineEvent.detail[0];
+        productListingEl.style.display = 'none';
+        productDetailEl.innerHTML = `<th-pdp product-line-id="${selectedProductLine}"></th-pdp>`;
+      }
+      productListingEl.addEventListener("pl-select", handleProductLineSelect);
+    </script>
+  </body>
+</html>
+
