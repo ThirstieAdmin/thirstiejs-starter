@@ -6,6 +6,9 @@ const apiKey = process.env.THAPIKEY;
 /* Google maps key: please provision your own for production */
 const mapsKey = process.env.THMAPSKEY;
 
+/* Set environment: defaults to 'sandbox' */
+const thirstieEnvironment = process.env.THENV || 'sandbox';
+
 /* boilerplate for vuejs */
 globalThis.__VUE_PROD_DEVTOOLS__ = process.env.NODE_ENV === 'development';
 globalThis.__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = process.env.NODE_ENV === 'development';
@@ -22,12 +25,13 @@ const thirstieAppConfig = {
   */
   brandLogo: 'https://media.thirstie.cloud/banners/rX6jSPAvjDpeEy5acMQ9GB,x250f.png',
   routes: {
-    checkout: '/checkout.html'
+    checkout: '/checkout.html',
+    shopping: '/'
   },
   /* NOTE: A production customer service email will be provided */
-  supportEmail: 'technology@thirstie.com',
+  supportEmail: 'support@email.com',
   experimental: false,
-  environment: 'sandbox'
+  environment: thirstieEnvironment
 };
 
 /* initialize Thirstie E-Commerce Components */
