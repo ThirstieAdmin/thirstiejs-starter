@@ -11,7 +11,7 @@
   "author": "Thirstie, Inc.",
   "license": "MIT",
   "dependencies": {
-    "@thirstie/ecomm-vue": "0.6.0"
+    "@thirstie/ecomm-vue": "^0.7.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
