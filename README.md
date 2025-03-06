@@ -49,14 +49,14 @@ You can use any valid address to test.  These are samples we use in QA testing.
 Since we use Stripe for payment processing, you can use [Stripe's test cards](https://docs.stripe.com/testing?testing-method=card-numbers#cards) for testing during checkout.
 
 **Valid Cards**
-
-`4242 4242 4242 4242`: Visa (Requires 3-digit CVC)
-`5555 5555 5555 4444`: Master Card (Requires 3-digit CVC)
-`2223 0031 2200 3222`: Master Card (Requires 3-digit CVC)
-`3782 822463 10005`: American Express (Requires 4-digit CVC)
-`3714 496353 98431`: American Express (Requires 4-digit CVC)
+| card number | scenario |
+| `4242 4242 4242 4242` | Visa (Requires 3-digit CVC) |
+| `5555 5555 5555 4444` | Master Card (Requires 3-digit CVC) |
+| `2223 0031 2200 3222` | Master Card (Requires 3-digit CVC) |
+| `3782 822463 10005` | American Express (Requires 4-digit CVC) |
+| `3714 496353 98431` | American Express (Requires 4-digit CVC) |
 
 **Problem States**
-
-`4000 0000 0000 0002`: Processor Declined
-`4000 0000 0000 0127`: Always returns "Incorrect CVV/CVC"
+| card number | scenario |
+| `4000 0000 0000 0002` | Processor Declined |
+| `4000 0000 0000 0127` | Always returns "Incorrect CVV/CVC" |
