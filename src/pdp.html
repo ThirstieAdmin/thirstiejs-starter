@@ -26,12 +26,20 @@
 
     <div class="wrapper">
       <div class="content">
-        <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
-        <!-- You can specify either <th-zipcode-check /> or <th-address-check />-->
-        <th-address-check></th-address-check>
-        <!-- handleSelect callback will control routing to PDP page-->
-        <th-plp id="th-plp"></th-plp>
-        <div id="th-pdp"></div>
+        <div class="page-content">
+          <div>
+            <h2>Custom Content</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <th-pdp-commerce product-line-id="1042263">
+            <div slot="additional-content">
+              <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
+              <section class="th-fouc-block" style="border-radius:var(--th-border-radius);background-color: #18244f;padding:0 1rem;width: 100%">
+                <th-address-check text-color="white" />
+              </section>
+            </div>
+          </th-pdp-commerce>
+        </div>
       </div>
       <!-- Install age gate modal -->
       <th-agegate-modal type="dob" class="th-fouc-block">
