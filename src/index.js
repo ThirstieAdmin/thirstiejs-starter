@@ -1,4 +1,6 @@
 import { initApp } from '@thirstie/ecomm-vue';
+import '@thirstie/ecomm-vue/dist/thirstiebase.css';
+import './styles.css';
 
 /* public Thirstie API key, provided by your Thirstie representative */
 const apiKey = process.env.THAPIKEY;
@@ -17,6 +19,9 @@ globalThis.__VUE_OPTIONS_API__ = false;
 const thirstieAppConfig = {
   APIKEY: apiKey,
   MAPSKEY: mapsKey,
+  experimental: false,
+  environment: thirstieEnvironment,
+  // other configuration settings unchanged from sandbox environment
   primaryColor: '#154D5B',
   secondaryColor: '#ffffff',
   /* Replace with your desired logo
@@ -29,9 +34,7 @@ const thirstieAppConfig = {
     shopping: '/'
   },
   /* NOTE: A production customer service email will be provided */
-  supportEmail: 'support@email.com',
-  experimental: false,
-  environment: thirstieEnvironment
+  supportEmail: 'support@email.com'
 };
 
 /* initialize Thirstie E-Commerce Components */
