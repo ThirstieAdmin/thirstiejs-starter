@@ -16,14 +16,32 @@ You must update the `src/index.js` script to load the API keys that your Thirsti
 
 You may also want to update `src/index.js` to reflect your styling preferences, use the site logo of your choice, etc.
 
-The script assumes that you place your API keys in environment variables, `THAPIKEY` and `THMAPSKEY`, so after updating your configuration you can launch the site with:
+The script assumes that you place your API keys in environment variables, `THAPIKEY` and `THMAPSKEY`. There are many ways to manage your environment variables, so please feel free to use the method that you are most comfortable with. For ease of exposition, we use dotenv in this demo:
 
-```bash
-> THMAPSKEY=<google maps api key> THAPIKEY=<your thirstie api key> npm start
+### Set your API keys
+
+1. Create a file called `.env.local` with the keys provided by your Thirstie representative in the root directory of your project (where this README.md file is):
+
+```
+THENV=sandbox
+THAPIKEY=<provided by Thirstie>
+THMAPSKEY=<Google Maps API Key>
 ```
 
-The demo app will be launched on http://localhost:1234/
+2. Execute the startup script to launch the demo site:
 
+```bash
+> npm start
+```
+
+3. The demo app will be launched on http://localhost:1234/
+
+```bash
+> thirstiejs-starter@1.2.1 start
+> dotenv -e .env.local -- parcel src/*.html --lazy --no-cache
+
+Server running at http://localhost:1234
+```
 
 ## Test scenarios
 
