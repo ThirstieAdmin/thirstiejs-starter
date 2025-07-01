@@ -24,8 +24,8 @@ The script assumes that you place your API keys in environment variables, `THAPI
 
 ```
 THENV=sandbox
-THAPIKEY=3Sp8sLavQvz9QQ4Mkner1b
-THMAPSKEY=AIzaSyCnaUMiemfrsQ8QvqdfbKIoeSoT64R5s4w
+THAPIKEY=<provided by Thirstie>
+THMAPSKEY=<Google Maps API Key>
 ```
 
 2. Execute the startup script to launch the demo site:
