@@ -1,0 +1,178 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thirstie Demo</title>
+
+    <style>
+      :root {
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        font-weight: 400;
+
+        color-scheme: light dark;
+        color: #000;
+        background-color: #fff;
+
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Colors */
+        --th-c-white: #FFF;
+        --th-c-black: #000;
+        --th-c-black-Blur: rgba(0, 0, 0, 0.14);
+        --th-c-blackLight-Blur: rgba(0, 0, 0, 0.2);
+        --th-c-blackLightest-Blur: rgba(0, 0, 0, 0.12);
+        --th-c-greysLightestGrey: #F2F2F2;
+        --th-c-greysMediumLightGrey: #BDBDBD;
+        --th-c-greysMediumDarkGrey: #828282;
+        --th-c-greysMediumDarkGrey-Blur: rgba(130,130,130, .25);
+        --th-c-greysDarkGrey: #4F4F4F;
+        --th-c-greysLightGrey: #aaa;
+        --th-c-greysDisabledGrey: var(--th-c-greysMediumLightGrey);
+        --th-c-alertWrongPrimary: #B71C1C;
+        --th-c-alertWrongTint: #FFE0E3;
+        --th-c-alertSuccessPrimary: #1B5E20;
+        --th-c-alertSuccessTint: #E3FAE4;
+        --th-c-alertWarningPrimary: #BA8808;
+        --th-c-alertWarningTint: #FFF1CC;
+        --th-c-lavendarIndigoLight: #646cff;
+        --th-c-fuchsia: #E600B4;
+        --th-c-paleYellow: #FFF8E1;
+
+        /* styles */
+        --th-border-form: 1px solid var(--th-c-greysMediumLightGrey);
+        --th-border-radius: 4px;
+        --th-header-dividers: 1px solid var(--th-c-greysLightestGrey);
+      }
+
+      /* block flash of unrendered contain while components are registered */
+      .th-fouc-block {
+        visibility: visible;
+        opacity: 0;
+        display: none;
+      }
+
+      /* demo app styling */
+
+      body {
+        margin: 0;
+        display: flex;
+        place-items: center;
+        min-width: 300px;
+        min-height: 80vh;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .content {
+        position:absolute;
+        top: 66px;
+        left: 0;
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #666;
+        width: 100%;
+        display: flex;
+        place-items: center;
+        margin: 0;
+      }
+
+      .header-container {
+        line-height: 1rem;
+        margin: 0 auto;
+        z-index: 1000000;
+        color: #000;
+        background-color: #fff;
+        border-bottom: var(--th-header-dividers);
+      }
+      .navbar {
+        display: inline-block;
+        width: 100%;
+        height: 3rem;
+        padding: .5rem 1rem;
+      }
+
+      .navbar-nav {
+        min-height: 2rem;
+        float: left;
+      }
+      .navbar-nav img {
+        height: 2rem;
+        vertical-align: middle;
+      }
+
+      .navbar-cta {
+        float: right;
+        padding: 0;
+      }
+
+      .navbar-title {
+        margin: 0 auto;
+        text-align: center;
+        line-height: 2rem;
+        vertical-align: middle;
+      }
+      .navbar-link {
+        padding:0 3rem;
+        color:#154D5B;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        line-height: 2rem;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header-container" class="th-fouc-block">  <!-- Your standard navigation bar header -->
+      <nav class="navbar">
+        <div class="navbar-nav">
+          <a href="/"><span><img src="https://media.thirstie.cloud/content/2Dt1hdN5CDkHNn7UBCQ5yH,x60f.png" /></span></a>
+        </div>
+        <div class="navbar-cta">
+          <!-- Thirstie Custom component placing the shopping cart icon in the header -->
+          <!-- th-header-nav also enables a slide in drawer to preview shopping cart details -->
+          <th-header-nav></th-header-nav>
+        </div>
+        <div class="navbar-title">
+          <a href="./simple.html" class="navbar-link">Alternate landing page</a>
+          <a href="./pdpdemo.html" class="navbar-link">Product PDP</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Adding th-fouc-block to a component will prevent a "flash of unrendered content" -->
+    <div class="content th-fouc-block">
+      <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
+      <th-availability-wrapper header-height="65" check-type="address">
+        <slot name="page-content">
+          <div class="page-content">
+            <h4 style="text-align: center;margin:0;padding:0;"><span>This site is for <strong>demonstration</strong> purposes only</span></h4>
+            <th-product-container></th-product-container>
+          </div>
+        </slot>
+      </th-availability-wrapper>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+
+  </body>
+</html>
