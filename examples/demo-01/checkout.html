@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- NOTE: this meta tag is required by Stripe's checkout elements -->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thirstie Checkout</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        #app {
+          width: 100vw;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="app">
+        <th-checkout>
+          <div id="th-stripe-mount-point" slot="th-stripe-payment"></div>
+
+          <div slot="additional-checkout-content" class="th-fouc-block">Checkout content goes here</div>
+          <div slot="support-content" class="th-fouc-block">Your order is important to us</div>
+          <div slot="additional-confirmation-content" class="th-fouc-block">Confirmation content goes here</div>
+        </th-checkout>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

@@ -8,7 +8,8 @@
     "start": "dotenv -e .env.local -- parcel src/*.html --lazy --no-cache",
     "clean": "concurrently \"recursive-delete 'dist'\" \"recursive-delete '.parcel-cache'\"",
     "dev": "parcel src/*.html --lazy --no-cache",
-    "dev:local": "dotenv -e .env.local npm -- run dev"
+    "dev:local": "dotenv -e .env.local -- npm run dev",
+    "demo-01": "dotenv -e .env.examples -- parcel examples/demo-01/*.html --lazy --no-cache"
   },
   "author": "Thirstie, Inc.",
   "license": "MIT",
