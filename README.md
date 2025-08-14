@@ -43,6 +43,15 @@ THMAPSKEY=<Google Maps API Key>
 Server running at http://localhost:1234
 ```
 
+4. Look at alternative implementations in the example directory.
+
+To use the examples provided in the `/examples` directory, you can create a file called `.env.examples` with credentials for the application you want to use for the examples. Then use the npm script for the selected demo, for example:
+
+```
+npm run demo-01
+```
+
+
 ## Test scenarios
 
 ###  Zip Codes Addresses
