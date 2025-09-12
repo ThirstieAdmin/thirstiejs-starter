@@ -6,7 +6,7 @@ Using the Thirstie SDK package requires that you obtain API keys from your Thirs
 
 ## Install
 
-The only run time dependency for this project is the Thirstie SDK package `@thirstie/ecomm-vue`, but we use [Parcel](https://parceljs.org/) as a build tool.  In practice use can use any build tool.
+The only run time dependency for this project is the Thirstie SDK package `@thirstie/ecomm-vue`, but we use [Parcel](https://parceljs.org/) as a build tool.  In practice you can use any build tool.
 
 `npm install`
 
