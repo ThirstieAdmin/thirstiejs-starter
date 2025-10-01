@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstiebase.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstieecomm.css" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.thirstie.cloud/js/latest/thirstie-ecomm-vue.js"></script>
+
+    <script defer src="/index.js" type="module"></script>
+  </head>
+  <body>
+
+    <div id="app">
+        <th-checkout>
+            <div id="th-stripe-mount-point" slot="th-stripe-payment"></div>
+        </th-checkout>
+    </div>
+
+  </body>
+</html>

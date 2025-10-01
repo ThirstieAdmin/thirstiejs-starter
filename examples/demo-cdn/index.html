@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstiebase.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstieecomm.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.thirstie.cloud/js/latest/thirstie-ecomm-vue.js"></script>
+
+    <script defer src="./index.js" type="module"></script>
+  </head>
+  <body>
+    
+    <header id="app-header" class="header-container">  <!-- Your standard navigation bar header -->
+      <nav class="navbar">
+          <div class="container-fluid">
+              <div class="navbar-nav">
+                Thirstie Powered E-Commerce
+              </div>
+          </div>
+          <div class="navbar-cta">
+            <!-- Thirstie Custom component placing the shopping cart icon in the header -->
+            <!-- th-header-nav also enables a slide in drawer to preview shopping cart details -->
+            <th-cart-nav></th-cart-nav>
+          </div>
+      </nav>
+    </header>
+
+    <div class="content">
+      <div class="page-content">
+        <th-pdp-commerce product-line-id="1042217">
+          <div slot="additional-content">
+            <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
+            <section class="th-fouc-block" style="border-radius:var(--th-border-radius);background-color: #154D5B;padding:0 1rem;width: 100%">
+              <th-address-check text-color="white" />
+            </section>
+          </div>
+        </th-pdp-commerce>
+      </div>
+    </div>
+
+  </body>
+</html>
