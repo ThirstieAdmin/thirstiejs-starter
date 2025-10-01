@@ -48,7 +48,7 @@ Server running at http://localhost:1234
 To use the examples provided in the `/examples` directory, you can create a file called `.env.examples` with credentials for the application you want to use for the examples. Then use the npm script for the selected demo, for example:
 
 ```
-npm run demo-01
+npm run demo-npm
 ```
 
 
