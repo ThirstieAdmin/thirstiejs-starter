@@ -5,18 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Demo</title>
 
+    <!-- BEGIN THIRSTIE SDK CODE -->
     <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstiebase.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.thirstie.cloud/css/latest/thirstieecomm.css" />
-    <link rel="stylesheet" type="text/css" href="/styles.css" />
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-    <script src="https://cdn.thirstie.cloud/js/latest/thirstie-ecomm-vue.js"></script>
+    <script src="https://cdn.thirstie.cloud/js/v1.4.1/thirstie-ecomm-vue.js"></script>
 
-    <script defer src="/index.js" type="module"></script>
+    <script defer type="module">
+      const getCredentials = () => {
+
+        // Your api keys
+        // Before going live, you will receive a production api key
+        const myCredentials =  {
+          "APIKEY": "oc6CHBQk6FAZeFEAeSWoJo",
+          "MAPSKEY": "AIzaSyCnaUMiemfrsQ8QvqdfbKIoeSoT64R5s4w",
+          "THENV": "sandbox"
+        };
+
+        const { APIKEY, MAPSKEY, THENV } = myCredentials;
+        window.thirstieEcommVue.initApp({
+            APIKEY: APIKEY,
+            MAPSKEY: MAPSKEY,
+            environment: THENV,
+            experimental: false,
+            featureFlags: {
+                engraving: false
+            },
+            primaryColor: '#154D5B',
+            secondaryColor: '#f0a0a0',
+            primaryContrastingColor: '#fff',
+            secondaryContrastingColor: '#000',
+            routes: {
+                checkout: '/checkout.html',
+                shopping: '/'
+            },
+            brandLogo:
+                'https://media.thirstie.cloud/content/2Dt1hdN5CDkHNn7UBCQ5yH,x250f.png'
+        });
+      }
+
+      globalThis.__VUE_PROD_DEVTOOLS__ = false;
+      globalThis.__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false;
+      globalThis.__VUE_OPTIONS_API__ = false;
+      getCredentials();
+    </script>
+    <!-- END THIRSTIE SDK CODE -->
+
+    <!-- Or specify CSS in <style /> tag -->
+    <style>
+      body {
+          margin: 0;
+          display: flex;
+          place-items: center;
+          min-width: 300px;
+          min-height: 80vh;
+      }
+
+      .checkout-container {
+          display: block;
+          padding: 0;
+          margin: 0;
+          background-color: #fff;
+          width: 100%;
+      }
+    </style>
   </head>
+
   <body>
 
-    <div id="app">
+    <div class="checkout-container">
         <th-checkout>
             <div id="th-stripe-mount-point" slot="th-stripe-payment"></div>
         </th-checkout>
