@@ -4,7 +4,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thirstie Demo</title>
+    <title>Thirstie SDK Demo</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.thirstie.cloud/css/latest/thirstiebase.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.thirstie.cloud/css/latest/thirstieecomm.css"
+    />
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 
@@ -26,21 +37,25 @@
 
     <div class="wrapper">
       <div class="content">
-        <div class="page-content">
-          <div>
+        <div class="flex flex-row">
+          <div style="width:50%">
             <h2>Custom Content</h2>
+            <p>Load this content from you CMS</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <th-pdp-commerce product-line-id="1042263">
-            <div slot="additional-content">
-              <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
-              <section class="th-fouc-block" style="border-radius:var(--th-border-radius);background-color: #18244f;padding:0 1rem;width: 100%">
-                <th-address-check text-color="white" />
-              </section>
-            </div>
-          </th-pdp-commerce>
+          <div style="width:50%">
+            <th-pdp-commerce product-line-id="1042215" id="th-pdp">
+              <div slot="additional-content">
+                <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
+                <section class="th-fouc-block" style="border-radius:var(--th-border-radius);background-color: #18244f;padding:0 1rem;">
+                  <th-address-check text-color="white" />
+                </section>
+              </div>
+            </th-pdp-commerce>
+          </div>
         </div>
       </div>
+
       <!-- Install age gate modal -->
       <th-agegate-modal type="dob" class="th-fouc-block">
         <span slot="header">Welcome! Can we see some ID?</span>
@@ -54,10 +69,10 @@
     <script src="./index.js" type="module"></script>
     <script>
       /*
-      This is to demonstrate using the components outside of a Thirstie Container component.
-      Alternatively Thirstie can provide a container that encapsulates this logic.
+      This allows setting the product line dynamically with query params.
+
+      In practice, your CMS will probably handle this logic.
       */
-      const productListingEl = document.querySelector('#th-plp');
       const productDetailEl = document.querySelector('#th-pdp');
 
       function handleProductLineSelect(productLineEvent) {
@@ -66,11 +81,16 @@
          This could be replace with your own more complex routing if the
          product-detail/add-to-cart should be on a page.
          */
-        const selectedProductLine = productLineEvent.detail && productLineEvent.detail[0];
-        productListingEl.style.display = 'none';
-        productDetailEl.innerHTML = `<th-pdp product-line-id="${selectedProductLine}"></th-pdp>`;
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const selectedProductLine = urlParams.get('plid');
+
+        if (!!selectedProductLine) {
+          productDetailEl.setAttribute('product-line-id', selectedProductLine);
+        }
       }
-      productListingEl.addEventListener("pl-select", handleProductLineSelect);
+      window.addEventListener("load", handleProductLineSelect);
     </script>
   </body>
 </html>
