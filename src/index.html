@@ -5,6 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thirstie Demo</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.thirstie.cloud/css/latest/thirstiebase.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.thirstie.cloud/css/latest/thirstieecomm.css"
+    />
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 
@@ -28,11 +38,26 @@
       <div class="content">
         <!-- Add a component to allow the user to specify their zip code in order to determine product availability -->
         <!-- You can specify either <th-zipcode-check /> or <th-address-check />-->
-        <th-address-check></th-address-check>
-        <!-- handleSelect callback will control routing to PDP page-->
-        <th-plp id="th-plp"></th-plp>
-        <div id="th-pdp"></div>
+        <th-zipcode-check></th-zipcode-check>
+
+        <!-- This section shows the use of product cards to selective highlight products-->
+        <!-- The th-catalog-collection component is a container component that ensures the products reference by the products cards are loaded -->
+        <th-catalog-collection>
+          <h2 class="flex flex-row justify-center my-4">Featured Products</h2>
+          <div class="flex flex-row my-4 gap-4 justify-around">
+            <th-product-add-to-cart product-line-id="1042217" pdp-link="/pdp.html?plid=1042217" show-link link-text="Learn More"></th-product-add-to-cart>
+            <th-product-add-to-cart product-line-id="1042215" pdp-link="/pdp.html?plid=1042215" show-link link-text="Learn More"></th-product-add-to-cart>
+          </div>
+        </th-catalog-collection>
+        <hr />
+
+        <div class="content">
+          <h2 class="flex flex-row justify-center my-2">Complete Catalog</h2>
+          <!-- The th-plp component displays a pre-built product listing component, and individul product detail views -->
+          <th-plp></th-plp>
+        </div>
       </div>
+
       <!-- Install age gate modal -->
       <th-agegate-modal type="dob" class="th-fouc-block">
         <span slot="header">Welcome! Can we see some ID?</span>
@@ -41,29 +66,10 @@
         </div>
         <div slot="fail-msg">You must 21 or older to enter. Click <a href="https://responsibility.org" target="_blank">here</a></div>
       </th-agegate-modal>
+
     </div>
 
     <script src="./index.js" type="module"></script>
-    <script>
-      /*
-      This is to demonstrate using the components outside of a Thirstie Container component.
-      Alternatively Thirstie can provide a container that encapsulates this logic.
-      */
-      const productListingEl = document.querySelector('#th-plp');
-      const productDetailEl = document.querySelector('#th-pdp');
-
-      function handleProductLineSelect(productLineEvent) {
-        /* 
-         Logic to display product detail component, with add-to-cart
-         This could be replace with your own more complex routing if the
-         product-detail/add-to-cart should be on a page.
-         */
-        const selectedProductLine = productLineEvent.detail && productLineEvent.detail[0];
-        productListingEl.style.display = 'none';
-        productDetailEl.innerHTML = `<th-pdp product-line-id="${selectedProductLine}"></th-pdp>`;
-      }
-      productListingEl.addEventListener("pl-select", handleProductLineSelect);
-    </script>
   </body>
 </html>
 

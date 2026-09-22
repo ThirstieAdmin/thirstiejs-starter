@@ -22,8 +22,10 @@ const thirstieAppConfig = {
   experimental: false,
   environment: thirstieEnvironment,
   // other configuration settings unchanged from sandbox environment
-  primaryColor: '#154D5B',
-  secondaryColor: '#ffffff',
+  primaryColor: '#154d5b',
+  primaryContrastingColor: '#f0f0f0',
+  secondaryColor: '#eab2a4',
+  secondaryContrastingColor: '#c4fcff',
   /* Replace with your desired logo
      NOTE: Thirstie can host your branding assets via our Asset Service CDN,
            which enables dynamic asset re-sizing and caching.
